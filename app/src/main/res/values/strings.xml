@@ -17,4 +17,5 @@
 <resources>
     <string name="app_name">Popup Message</string>
     <string name="hello_world">Hello world!</string>
+    <string name="text_archived">Archived</string>
 </resources>

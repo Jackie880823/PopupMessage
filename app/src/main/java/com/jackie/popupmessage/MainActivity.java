@@ -18,14 +18,33 @@ package com.jackie.popupmessage;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 
 public class MainActivity extends Activity {
+
+    CoordinatorLayout mCoordinatorLayout;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        findViewById(R.id.floating_action_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar mSnackBar = Snackbar.make(mCoordinatorLayout, R.string.text_archived, Snackbar.LENGTH_SHORT);
+                mSnackBar.show();
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.my_coordinator);
+
     }
 }
